@@ -10,6 +10,7 @@ use Validator;
 use Session;
 use App\Form;
 use Idrd\Usuarios\Repo\Acceso;
+use App\Localidad;
 use App\Fechas;
 use App\Horas;
 use App\Cupo;
@@ -25,12 +26,9 @@ class FormController extends BaseController
      public function index()
     {
 
-      //$fechas = Fechas::with('horas')->get();
-      $fechas = Fechas::all();
-      $horas = Horas::all();
-
+     $localidad = Localidad::all();
       //dd($horas); exit();
-      return view('welcome',["fechas"=>$fechas, "horas"=>$horas,]);
+      return view('welcome',["localidades"=>$localidad,]);
     }
 
     private function cifrar($M)
@@ -56,7 +54,7 @@ class FormController extends BaseController
 
    public function listar_datos(){
 
-    $acceso = Form::with('horas', 'horas.fecha')->whereYear('created_at', '=', date('Y'))->get(); 
+   $acceso = Form::whereYear('created_at', '=', date('Y'))->get(); 
     
     $tabla='<table id="lista">
         <thead>
@@ -65,11 +63,12 @@ class FormController extends BaseController
              <th style="text-transform: capitalize;">Nombres</th>
              <th style="text-transform: capitalize;">Apellidos</th> 
              <th style="text-transform: capitalize;">Documento de identidad</th>           
-             <th style="text-transform: capitalize;">Email</th>
-             <th style="text-transform: capitalize;">Teléfono</th>
-             <th style="text-transform: capitalize;">Eps</th>
-             <th style="text-transform: capitalize;">Fecha</th>
-             <th style="text-transform: capitalize;">hora</th>
+             <th style="text-transform: capitalize;">Correo Electrónico</th>
+             <th style="text-transform: capitalize;">Teléfono Celular</th>
+             <th style="text-transform: capitalize;">Edad</th>
+             <th style="text-transform: capitalize;">Grado de estudio</th>
+             <th style="text-transform: capitalize;">Deporte</th>
+             <th style="text-transform: capitalize;">Localidad</th>
             </tr>
         </thead>
         <tbody id="tabla">';
@@ -81,10 +80,11 @@ class FormController extends BaseController
        $tabla.='<td>'.$value->apellido.'</td>';   
        $tabla.='<td>'.$value->cedula.'</td>';   
        $tabla.='<td>'.$value->mail.'</td>';    
-       $tabla.='<td>'.$value->telefono.'</td>';
-       $tabla.='<td>'.$value->eps.'</td>';
-       $tabla.='<td>'.$value->horas->fecha['fecha'].'</td>';
-       $tabla.='<td>'.$value->horas['hora'].'</td></tr>';
+       $tabla.='<td>'.$value->celular.'</td>';
+       $tabla.='<td>'.$value->edad.'</td>';
+       $tabla.='<td>'.$value->estudio.'</td>';
+       $tabla.='<td>'.$value->deporte.'</td>';
+       $tabla.='<td>'.$value->localidades['localidad'].'</td></tr>';
        
 
       }
@@ -112,53 +112,46 @@ class FormController extends BaseController
     }
 
 
-//insertar
-
- public function insertar(Request $request){
+    public function insertar(Request $request)
+    {
 
       $post = $request->input();
-
-
-
       $usuario = Form::where('cedula', $request->input('cedula'))->first(); 
+      if (!empty($usuario)) { return view('error',['error' => 'Este usuario ya fue registrado!'] ); exit(); }
+      $formulario = new Form([]);
 
-       if (!empty($usuario)) { return view('error',['error' => 'Este usuario ya fue registrado!'] ); exit(); }
-
-       $formulario = new Form([]);
-        
         //envio de correo
-        $registros = $this->inscritos($request->input('hora'));
-        var_dump($registros->count());
-        //exit();
-       if($registros->count() <15){
+
+       if($this->inscritos()<=2)
+       {
 
         $this->store($formulario, $request->input());
-
-        Mail::send('email', ['user' => $request->input('mail'),'formulario' => $formulario], function ($m) use ($request) 
+        Mail::send('email', ['user' => $request->input('mail')], function ($m) use ($request) 
         {
-            $m->from('no-reply@idrd.gov.co', 'Registro Exitoso a Buceo - Festival de Verano 2017');
-            $m->to($request->input('mail'), $request->input('primer_nombre'))->subject('Registro Exitoso a Buceo - Festival de Verano 2017');
+
+            $m->from('no-reply@idrd.gov.co', 'Registro Exitoso  al 2° Seminario Distrital de Nuevas Tendencias Deportivas - 2017');
+            $m->to($request->input('mail'), $request->input('primer_nombre'))->subject('Registro Exitoso al 2° Seminario Distrital de Nuevas Tendencias Deportivas - 2017!');
+
         });
-        
+
       }else{
 
-        return view('error', ['error' => 'Lo sentimos el limite de inscritos fue superado para esta fecha y horario']);
-
+        return view('error', ['error' => 'Lo sentimos el limite de inscritos fue superado!']);
       }
 
-        //envio de correo
-
-        return view('error', ['error' => 'Su Inscripción fue aceptada']);
-
+        return view('error', ['error' => 'Su registro fue exitoso']);
     }
-    //fin insertar
-   
+
+
 // conteo de la tabla
 
-    private function inscritos($hora){
-      $registros = Form::where('hora', $hora)->get();
-      return $registros;
+    private function inscritos()
+    {
+
+      $cant = Form::count('id');
+      return $cant+1;
     }
+
 
     private function store($formulario, $input)
 
@@ -167,10 +160,11 @@ class FormController extends BaseController
         $formulario['apellido'] = $input['apellido'];
         $formulario['cedula'] = $input['cedula'];
         $formulario['mail'] = $input['mail'];
-        $formulario['telefono'] = $input['telefono'];
-        $formulario['eps'] = $input['eps'];
-        $formulario['fecha'] = $input['fecha'];
-        $formulario['hora'] = $input['hora'];
+        $formulario['celular'] = $input['celular'];
+        $formulario['edad'] = $input['edad'];
+        $formulario['estudio'] = $input['estudio'];
+        $formulario['deporte'] = $input['deporte'];
+        $formulario['localidad'] = $input['localidad'];
         $formulario->save();
 
         return $formulario;

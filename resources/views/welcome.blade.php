@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="public/Css/slider_styles.css">
 <section id="page1">
    <div class="panel panel-default">
-   <div class="panel-heading"><center><font size="5" face="Comic Sans MS,arial,verdana">INSCRIPCIÓNES BUCEO - FESTIVAL DE VERANO 2017</center> </div>
+   <div class="panel-heading"><center><font size="5" face="arial">INSCRIPCIONES</center> </div>
    <div class="panel-body">
    <div class="freebirdFormviewerViewFormContent ">
    <div class="freebirdFormviewerViewHeaderHeader">
@@ -17,15 +17,15 @@
          <div id="SLDR-ONE" class="sldr">
             <ul class="wrp animate">
                <li class="elmnt-one">
-                  <div class="wrap"><img src="public/Img/buceo.jpg"  height="400">
+                  <div class="wrap"><img src="public/Img/nuevas.jpg"  height="400">
                   </div>
                </li>
                <li class="elmnt-two">
-                  <div class="wrap"><img src="public/Img/buceo1.jpg"  height="400">
+                  <div class="wrap"><img src="public/Img/nuevas1.jpg"  height="400">
                   </div>
                </li>
                <li class="elmnt-three">
-                  <div class="wrap"><img src="public/Img/buceo2.jpg"  height="400">
+                  <div class="wrap"><img src="public/Img/nueva2.jpg"  height="400">
                   </div>
                </li>
             </ul>
@@ -39,23 +39,20 @@
       </div>
       <script src="public/Js/jquery.sldr.js"></script>
       <div class="freebirdFormviewerViewHeaderDescription" dir="auto">
-         <br>
-         <p style="line-height: 27px; font-size: 11pt" align="justify">El buceo es el placer infinito de de sentir la ingravidez, cuando lo practicas con tanque de aire comprimido, resulta un tanto más fácil y te permite disfrutar por más tiempo del bellísimo universo submarino.
-            Queremos invitar los participantes del festival de verano de Bogotá a descubrir la sensación de bucear en una piscina de poca profundidad. La idea es que se disfrute de ponerse un equipo de buceo y experimentar la sensación de respirar bajo el agua con el acompañamiento de un instructor de buceo de BUCONOS. 
+         <p style="line-height: 27px; font-size: 12pt; font-family:arial" align="justify">Nuevas Tendencias Deportivas Bogotá (NTD Bogotá) son todos aquellos deportes de carácter innovador y alternativo, que incentivan al aprovechamiento del ocio, tiempo libre y sana convivencia, con un componente deportivo, donde intervienen normas a cumplir y la capacidad física-técnica de los practicantes son determinantes en los resultados, estos deportes se caracterizan por que están en proceso o fuera del Sistema Nacional de Deportes.
          </p>
-         <br>
-         <p style="line-height: 27px; font-size: 11pt" align="justify"><strong>Importante:</strong> La actividad es 100% recreativa y que comprenderá una instrucción técnica mínima para que la práctica se lleve a cabo con seguridad y disfrute pero que no es en ningún momento una formación en buceo ni otorgará ningún tipo de certificación formal. </p>
-         <br>
-         <p style="line-height: 27px; font-size: 11pt" align="justify"><strong>Requisitos:</strong>
-         <li style=" line-height: 27px;font-size: 11pt; " align="justify">Saber nadar estilo libre</li>
-         <li style=" line-height: 27px;font-size: 11pt; " align="justify">Ser mayor de 14 años</li>
-         <li style=" line-height: 27px;font-size: 11pt; " align="justify">Autorización de los padres para menores de edad</li>
-         <li style=" line-height: 27px;font-size: 11pt; " align="justify">Haber realizado pre inscripción en la página del IDRD</li>
+
+         <p style="line-height: 27px; font-size: 12pt;font-family:arial" align="justify"><strong>Objetivo:</strong> Fortalecer, promover y promocionar el desarrollo de las Nuevas Tendencias Deportivas de la ciudad de Bogotá. </p>
+
+         <p style="line-height: 27px; font-size: 12pt;font-family:arial" align="justify"><strong>Cobertura:</strong> Esta capacitación va dirigida a estudiantes, deportistas,  instructores y comunidad en general que estén relacionados con los Deportes Nueva tendencias.</p>
+
+         <p style="line-height: 27px; font-size: 12pt; font-family:arial" align="justify"><strong>Lugar:</strong> Instituto Distrital de recreación y Deporte IDRD (calle 63 No. 59A - 06) Salón Presidente</p>
+         <p style="line-height: 27px; font-size: 12pt; font-family:arial" align="justify"><strong>Fecha:</strong> Miercóles 1 de Noviembre de 2017</p>
+         <p style="line-height: 27px; font-size: 12pt; font-family:arial" align="justify"><strong>Hora: </strong>8:00 a.m a 5:00 p.m </p>
          </p>
          <br>
          <link rel="stylesheet" type="text/css" href="public/Css/form.css">
          <form method="POST" action="insertar" id="form_gen" enctype="multipart/form-data">
-         <input type="hidden" name="horas-json" id="horas-json" value="{{ $horas }}"></input>
             <div class="panel-body">
                <!-- nuevo formulario-->
                <div class="panel panel-default">
@@ -65,7 +62,7 @@
                   <div class="panel-body">
                      <div class="row">
                         <div class="col-xs-6">
-                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Nombres Completos </label>
+                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput"><font style="font-family:arial">Nombres Completos </label>
                            <input required type="text" class="form-control" id="nombre" name="nombre" onkeyup="javascript:this.value=this.value.toUpperCase();">
                         </div>
                         <div class="col-xs-6">
@@ -77,33 +74,42 @@
                            <input required type="text" class="form-control" id="cedula" name="cedula">
                         </div>
                         <div class="col-xs-6">
-                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Email</label>
+                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Correo Electrónico</label>
                            <input required type="mail" class="form-control" id="mail" name="mail">
                            <br>
                         </div>
                         <div class="col-xs-6">
-                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Télefono</label>
-                           <input required type="number" class="form-control" id="telefono" name="telefono">
+                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Télefono Celular</label>
+                           <input required type="number" class="form-control" id="celular" name="celular">
                         </div>
                         <div class="col-xs-6">
-                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">EPS</label>
-                           <input required type="text" class="form-control" id="eps" name="eps" onkeyup="javascript:this.value=this.value.toUpperCase();" ><br>
+                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Edad</label>
+                           <input required type="number" class="form-control" id="edad" name="edad" ><br>
                         </div>
                         <div class="col-xs-6">
-                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha de Buceo</label>
-                           <select name="fecha" id="fecha" class="form-control" >
+                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Grado de Estudio</label>
+                           <select name="estudio" id="estudio" class="form-control" >
                               <option value="">Seleccione</option>
-                                 @foreach ($fechas as $fecha)
-                                     <option value="{{ $fecha->id }}">{{ $fecha->fecha}}</option>
-                                 @endforeach
+                              <option value="1">Bachiller</option>
+                              <option value="2">Técnico</option>
+                              <option value="3">Profesional</option> 
+                              <option value="4">Especialista</option> 
                            </select>
                         </div>
                         <div class="col-xs-6">
-                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Horario de Buceo </label>
-                           <select  required name="hora" id="hora" class="form-control" >
-                              <option value="">Seleccione</option>           
-                         </select><br>
+                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Deporte que Practica</label>
+                          <input required type="text" class="form-control" id="deporte" name="deporte"><br>
                         </div>
+                         <div class="col-xs-6">
+                           <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Localidad</label>
+                           <select  required name="localidad" id="localidad" class="form-control" >
+                            <option value="">Seleccione</option>
+                                @foreach ($localidades as $localidad)
+                            <option value="{{ $localidad->id_localidad }}">{{ $localidad->localidad}}</option>
+                         @endforeach
+                        </select>
+                        </div>
+
                </div>
                <br>
             
@@ -121,7 +127,7 @@
                            <div class="freebirdMaterialHeaderbannerPagebreakText freebirdFormviewerViewItemsPagebreakBannerText"></div>
                         </div>
                      </div>
-                      <!-- <div class="freebirdFormviewerViewItemsPagebreakDescriptionText"></div>
+                      <div class="freebirdFormviewerViewItemsPagebreakDescriptionText"></div>
                      <div role="listitem" class="freebirdFormviewerViewItemsItemItem" jsname="ibnC6b" jscontroller="hIYTQc" jsaction="JIbuQc:qzJD1c;sPvj8e:e4JwSe" data-required="true" data-other-input="qSV85" data-other-hidden="MfYA1e" data-item-id="131124881">
                         <div class="freebirdFormviewerViewItemsItemItemheader">
                            <div class="freebirdFormviewerViewItemsItemItemTitleContainer">
@@ -135,10 +141,10 @@
                                  <label class="docssharedWizToggleLabeledContainer freebirdFormviewerViewItemsCheckboxContainer">
                                     <div class="exportLabelWrapper">
                                        <input type="checkbox" required style="float: left;
-                                          margin: 0px;" name="acepto" id="acepto">
+                                          margin: 3px;" name="acepto" id="acepto">
                                        <div class="docssharedWizToggleLabeledContent">
                                         <div class="docssharedWizToggleLabeledPrimaryText"><span dir="auto" class="docssharedWizToggleLabeledLabelText freebirdFormviewerViewItemsCheckboxLabel">Acepto</span></div>
-                                       </div>-->
+                                       </div>
                                     </div>
                                  </label>
                               </div>
@@ -151,9 +157,9 @@
                   </div>
                   <div class="freebirdFormviewerViewNavigationNavControls" jscontroller="lSvzH" jsaction="rcuQ6b:npT2md;JIbuQc:V3upec(GeGHKb),HiUbje(M2UYVd),NPBnCf(OCpkoe)" data-shuffle-seed="-2327421662174229681">
                      <div class="freebirdFormviewerViewNavigationButtonsAndProgress">
-                        <!--<div class="freebirdFormviewerViewNavigationButtons">
+                        <div class="freebirdFormviewerViewNavigationButtons">
                            <input class="enviar" type="submit" value="Enviar"> 
-                        </div>-->
+                        </div>
                         
                      </div>
                      <div class="freebirdFormviewerViewNavigationPasswordWarning">.</div>

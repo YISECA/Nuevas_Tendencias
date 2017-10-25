@@ -84,7 +84,7 @@
 
 
 
-      <title>BUCEO - FESTIVAL DE VERANO 2017</title>
+      <title>2° Seminario Distrital de Nuevas Tendencias Deportivas - 2017</title>
 
   </head>
 
@@ -168,11 +168,11 @@
 
               <div class="col-lg-8 col-md-7 col-sm-6">
 
-                <h1><font size="6" face="Comic Sans MS,arial,verdana">IDRD</font></h1>
+                <h1><font size="5">IDRD</font></h1>
 
                 <p class="lead">
 
-                <h1><font size="5" face="Comic Sans MS,arial,verdana">COMPLEJO ACUÁTICO SIMÓN BOLIVAR </font></h1>
+                <h1><font size="5">2° Seminario Distrital de Nuevas Tendencias Deportivas - 2017 </font></h1>
               
 
                 </p>

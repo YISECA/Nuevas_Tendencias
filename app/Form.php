@@ -5,13 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Form extends Model
 {
-   protected $table = 'buceo';
+   protected $table = 'nuevas_tendencias';
+   protected $primaryKey = 'id';
+   protected $fillable = ['localidad'];
 
-
-   public function horas(){
-  
-  return $this->belongsTo('App\Horas','hora');
-
+public function localidades()
+   {
+       return $this->belongsTo('App\Localidad','localidad');
    }
 
 }
